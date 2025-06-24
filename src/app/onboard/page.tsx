@@ -224,7 +224,7 @@ export default function OnboardPage() {
                                 <div className="space-y-6">
                                     <div>
                                         <h3 className="text-xl font-semibold mb-4">Categories & Languages</h3>
-                                        <p className="text-gray-600 mb-6">Select the artist's specialties and languages</p>
+                                        <p className="text-gray-600 mb-6">Select the artist&apos;s specialties and languages</p>
                                     </div>
 
                                     <div>
