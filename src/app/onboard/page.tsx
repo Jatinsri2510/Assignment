@@ -14,11 +14,11 @@ import { CheckCircle, Upload, ArrowRight, ArrowLeft } from 'lucide-react';
 const schema: yup.ObjectSchema<FormData> = yup.object({
     name: yup.string().required('Name is required').min(2, 'Name must be at least 2 characters'),
     bio: yup.string().required('Bio is required').min(50, 'Bio must be at least 50 characters'),
-    category: yup.array().of(yup.string()).min(1, 'Please select at least one category').required('Category is required'),
-    languages: yup.array().of(yup.string()).min(1, 'Please select at least one language').required('Languages are required'),
+    category: yup.array().of(yup.string().required()).min(1, 'Please select at least one category').required('Category is required'),
+    languages: yup.array().of(yup.string().required()).min(1, 'Please select at least one language').required('Languages are required'),
     feeRange: yup.string().required('Fee range is required'),
     location: yup.string().required('Location is required').min(2, 'Location must be at least 2 characters'),
-    imageUrl: yup.string().notRequired(), // <-- notRequired, matches FormData
+    imageUrl: yup.string().notRequired(),
 });
 
 export default function OnboardPage() {
