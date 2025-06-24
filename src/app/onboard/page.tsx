@@ -18,7 +18,7 @@ const schema: yup.ObjectSchema<FormData> = yup.object({
     languages: yup.array().of(yup.string().required()).min(1, 'Please select at least one language').required('Languages are required'),
     feeRange: yup.string().required('Fee range is required'),
     location: yup.string().required('Location is required').min(2, 'Location must be at least 2 characters'),
-    imageUrl: yup.string().notRequired(),
+    imageUrl: yup.string().notRequired().defined(), // <-- this is the fix!
 });
 
 export default function OnboardPage() {
