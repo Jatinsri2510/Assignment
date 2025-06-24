@@ -11,15 +11,15 @@ import { FormData } from '@/types';
 import { CheckCircle, Upload, ArrowRight, ArrowLeft } from 'lucide-react';
 
 // Form validation schema
-const schema = yup.object({
+const schema: yup.ObjectSchema<FormData> = yup.object({
     name: yup.string().required('Name is required').min(2, 'Name must be at least 2 characters'),
     bio: yup.string().required('Bio is required').min(50, 'Bio must be at least 50 characters'),
-    category: yup.array().min(1, 'Please select at least one category').required('Category is required'),
-    languages: yup.array().min(1, 'Please select at least one language').required('Languages are required'),
+    category: yup.array().of(yup.string()).min(1, 'Please select at least one category').required('Category is required'),
+    languages: yup.array().of(yup.string()).min(1, 'Please select at least one language').required('Languages are required'),
     feeRange: yup.string().required('Fee range is required'),
     location: yup.string().required('Location is required').min(2, 'Location must be at least 2 characters'),
-    imageUrl: yup.string().optional(),
-}).required();
+    imageUrl: yup.string().notRequired(), // <-- notRequired, matches FormData
+});
 
 export default function OnboardPage() {
     const [currentStep, setCurrentStep] = useState(1);
@@ -374,7 +374,7 @@ export default function OnboardPage() {
                                         disabled={!isValid || isSubmitting}
                                         className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700"
                                     >
-                                        {isSubmitting ? 'Submitting&hellip;' : 'Submit Application'}
+                                        {isSubmitting ? 'Submitting…' : 'Submit Application'}
                                     </Button>
                                 )}
                             </div>
