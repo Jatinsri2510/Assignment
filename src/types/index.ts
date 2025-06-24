@@ -35,11 +35,11 @@ export interface FilterOptions {
 }
 
 export interface FormData {
-    name: string;
-    bio: string;
-    category: string[];
-    languages: string[];
-    feeRange: string;
-    location: string;
-    imageUrl?: string;
-} 
+  name: string;
+  bio: string;
+  category: string[];
+  languages: string[];
+  feeRange: string;
+  location: string;
+  imageUrl?: string;
+}
